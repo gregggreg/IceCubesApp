@@ -59,6 +59,9 @@
 "settings.app.support" = "Support the app";
 "settings.display.font" = "Timeline Font";
 "settings.display.font.system" = "System";
+"settings.display.font.system-rounded" = "System Rounded";
+"settings.display.font.system-serif" = "System Serif";
+"settings.display.font.system-mono" = "System Mono";
 "settings.display.font.custom" = "Custom";
 "settings.display.font.scaling-%@" = "Font scaling: %@";
 "settings.display.avatar.position" = "Avatar position";

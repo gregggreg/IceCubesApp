@@ -5,7 +5,7 @@ import Status
 import SwiftUI
 
 struct DisplaySettingsView: View {
-  typealias FontState = Theme.FontState
+  typealias FontState = Models.FontState
 
   @Environment(\.colorScheme) private var colorScheme
   @EnvironmentObject private var theme: Theme
@@ -36,11 +36,21 @@ struct DisplaySettingsView: View {
 
       Section("settings.display.section.display") {
         Picker("settings.display.font", selection: .init(get: {
-          userPreferences.chosenFontData != nil ? FontState.custom : FontState.system
+          userPreferences.chosenFontData != nil ? FontState.custom : userPreferences.fontState
         }, set: { newValue in
           switch newValue {
           case .system:
             userPreferences.chosenFont = nil
+            userPreferences.fontState = .system
+          case .systemRounded:
+            userPreferences.chosenFont = nil
+            userPreferences.fontState = .systemRounded
+          case .systemSerif:
+            userPreferences.chosenFont = nil
+            userPreferences.fontState = .systemSerif
+          case .systemMono:
+            userPreferences.chosenFont = nil
+            userPreferences.fontState = .systemMono
           case .custom:
             isFontSelectorPresented = true
           }

@@ -88,6 +88,19 @@ public class UserPreferences: ObservableObject {
       }
     }
   }
+  
+  public var fontState: FontState {
+    get {
+      if let stateValue = Self.sharedDefault?.integer(forKey: "font_state"),
+         let state = FontState(rawValue: stateValue) {
+        return state
+      }
+      return .system
+    }
+    set {
+      Self.sharedDefault?.set(newValue.rawValue, forKey: "font_state")
+    }
+  }
 
   @Published public var serverPreferences: ServerPreferences?
 
